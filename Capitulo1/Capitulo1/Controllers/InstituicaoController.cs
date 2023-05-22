@@ -1,6 +1,7 @@
 ﻿using Capitulo1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Capitulo1.Controllers
 {
@@ -41,6 +42,20 @@ namespace Capitulo1.Controllers
         public IActionResult Index()
         {
             return View(instituicoes);
+        }
+
+
+        public ActionResult Create() 
+        { 
+            return View(); 
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Instituicao instituicao) 
+        {
+            instituicoes.Add(instituicao);
+            instituicao.InstituicaoID = instituicoes.Select(i => i.InstituicaoID).Max() + 1;
+            return RedirectToAction("Index");
         }
     }
 }

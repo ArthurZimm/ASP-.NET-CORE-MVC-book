@@ -13,7 +13,7 @@
 </head>
 <body>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"> Criar nova instituição</a>
 </p>
 <table class="table">
     <thead>
@@ -41,11 +41,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Endereco)
+
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.InstituicaoID }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.InstituicaoID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.InstituicaoID })
+                @Html.ActionLink("Details", "Details", new { id=item.InstituicaoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.InstituicaoID })
             </td>
         </tr>
 }
